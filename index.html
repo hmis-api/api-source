@@ -1,0 +1,75 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" >
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+      html
+      {
+        box-sizing: border-box;
+        overflow: -moz-scrollbars-vertical;
+        overflow-y: scroll;
+      }
+
+      *,
+      *:before,
+      *:after
+      {
+        box-sizing: inherit;
+      }
+
+      body
+      {
+        margin:0;
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+
+    <script src="./swagger-ui-bundle.js"> </script>
+    <script src="./swagger-ui-standalone-preset.js"> </script>
+    <script>
+        window.onload = function() {
+
+      // Build a system
+      const ui = SwaggerUIBundle({
+   //    url: "2015-api.json",
+         urls: [{url: "2017-api.yaml", name: "2017 Apis"},{url: "2016-api.yaml", name: "2016 Apis"},{url: "2015-api.yaml", name: "2015 Apis"},
+                {url: "2014-api.yaml", name: "2014 Apis"},
+                {url: "authorization-service-api.yaml", name: "Authorization Service Api"},
+                {url: "developer-service-api.yaml", name: "Developer Service Api"},
+                {url: "client-consent-api.yaml", name: "Client Consent Api"},
+                {url: "hmis-bulk-api.yaml", name: "Bulk Upload Api"},
+                {url: "housing-inventory-api.yaml", name: "Housing inventory Api"},
+                {url: "housing-matching-service-api.yaml", name: "Housing Match Service Api"},
+                {url: "survey-service-api.yaml", name: "Survey Service Api"},
+                {url: "global-api.yaml", name: "Global Api"},
+                {url: "global-household-api.yaml", name: "Global Household Api"},
+                {url: "user-service-api.yaml", name: "User Service  Api"}
+               ],
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        jsonEditor:true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+
+      window.ui = ui
+    }
+  </script>
+  </body>
+</html>
