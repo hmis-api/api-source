@@ -13,6 +13,7 @@ cd authorization-service-api;git pull;cd ..;
 cd human-services-api;git pull;cd ..;
 cd airs-resource-api;git pull;cd ..;
 cd api-source;git pull;cd ..;
+cd report-service-api;git pull;cd..;
 
 cp -rf /proj/api/2017-hmis-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/2017-api.yaml
 cp -rf /proj/api/2016-hmis-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/2016-api.yaml
@@ -29,4 +30,5 @@ cp -rf /proj/api/human-services-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/w
 cp -rf /proj/api/survey-service-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/survey-service-api.yaml
 cp -rf /proj/api/user-service-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/user-service-api.yaml
 cp -rf /proj/api/global-household-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/global-household-api.yaml
+cp -rf /proj/api/report-service-api/api-markup/api.oas3.yaml  /var/lib/tomcat7/webapps/hmis-api/report-service-api.yaml
 cp -rf /proj/api/api-source/* /var/lib/tomcat7/webapps/hmis-api/
