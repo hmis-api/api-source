@@ -43,7 +43,8 @@
       const ui = SwaggerUIBundle({
    //    url: "2015-api.json",
          urls: [{url: "global-api.yaml", name: "Global Api"},
-		{url: "2017-api.yaml", name: "2017 Apis"},{url: "2016-api.yaml", name: "2016 Apis"},{url: "2015-api.yaml", name: "2015 Apis"},
+                {url: "2020-api.yaml", name: "2020 Apis"},
+                {url: "2017-api.yaml", name: "2017 Apis"},{url: "2016-api.yaml", name: "2016 Apis"},{url: "2015-api.yaml", name: "2015 Apis"},
                 {url: "2014-api.yaml", name: "2014 Apis"},
                 {url: "authorization-service-api.yaml", name: "Authorization Service Api"},
                 {url: "developer-service-api.yaml", name: "Developer Service Api"},
@@ -52,9 +53,10 @@
                 {url: "housing-inventory-api.yaml", name: "Housing inventory Api"},
                 {url: "housing-matching-service-api.yaml", name: "Housing Match Service Api"},
                 {url: "survey-service-api.yaml", name: "Survey Service Api"},
-                {url: "global-household-api.yaml", name: "Global Household Api"},
-                {url: "user-service-api.yaml", name: "User Service  Api"}
-                {url: "report-service-api.yaml", name: "Report Service Api"}
+                {url: "global-household-api.yaml", name: "Generic Household Api"},
+                {url: "user-service-api.yaml", name: "User Service  Api"},
+                {url: "export-service-api.yaml", name: "File Export Service  Api"},
+				{url: "report-service-api.yaml", name: "Report Service Api"}
                ],
         dom_id: '#swagger-ui',
         deepLinking: true,
@@ -63,6 +65,13 @@
           SwaggerUIBundle.presets.apis,
           SwaggerUIStandalonePreset
         ],
+	configs: {
+            preFetch: function(req) {
+              	req.headers["Authorization"] = "HMISUserAuth session_token=48B94241CB34480DB8AB701206AA37E146155A5E6FC044738A8E1BE2CABA9490";
+	        req.headers["x-hmis-trustedapp-id"] = "15C2ED0C-263C-41FE-B1C7-B1E75BB87B48";
+            return req;
+           }
+        },
         plugins: [
           SwaggerUIBundle.plugins.DownloadUrl
         ],
